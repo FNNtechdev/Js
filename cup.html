@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Draw a Cup</title>
+  <style>
+    canvas {
+      border: 1px solid #ccc;
+      display: block;
+      margin: 40px auto;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="cupCanvas" width="400" height="300"></canvas>
+
+<script>
+  const canvas = document.getElementById("cupCanvas");
+  const ctx = canvas.getContext("2d");
+
+  // Cup body
+  ctx.beginPath();
+  ctx.moveTo(120, 80);
+  ctx.lineTo(110, 200);
+  ctx.lineTo(250, 200);
+  ctx.lineTo(240, 80);
+  ctx.closePath();
+
+  ctx.fillStyle = "#d9d9d9";
+  ctx.fill();
+  ctx.strokeStyle = "#000";
+  ctx.stroke();
+
+  // Cup rim
+  ctx.beginPath();
+  ctx.ellipse(180, 80, 60, 15, 0, 0, Math.PI * 2);
+  ctx.fillStyle = "#eeeeee";
+  ctx.fill();
+  ctx.stroke();
+
+  // Cup bottom
+  ctx.beginPath();
+  ctx.ellipse(180, 200, 55, 12, 0, 0, Math.PI * 2);
+  ctx.stroke();
+
+  // Handle (outer)
+  ctx.beginPath();
+  ctx.arc(260, 140, 35, -0.5 * Math.PI, 0.5 * Math.PI);
+  ctx.stroke();
+
+  // Handle (inner)
+  ctx.beginPath();
+  ctx.arc(260, 140, 20, -0.5 * Math.PI, 0.5 * Math.PI);
+  ctx.stroke();
+
+  // Saucer
+  ctx.beginPath();
+  ctx.ellipse(180, 220, 80, 15, 0, 0, Math.PI * 2);
+  ctx.stroke();
+</script>
+
+</body>
+</html>
